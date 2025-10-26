@@ -1,0 +1,137 @@
+Names: Jan Konings, Jude Vamenta
+utlns: jkonin01 jvamen01
+
+Answer the questions below, and submit your answers under the assignment
+"gerp Design Checkoff" on Gradescope. You must sign up for a design checkoff
+slot with a TA to discuss your provided answers (see spec for sign up link).
+Make sure to submit this file *prior* to your design checkoff.
+
+For each question, give as much detail as you feel is necessary.
+
+1. What classes and structs will you implement for your program? For each class,
+   provide a list of public functions of that class; for each struct, provide a
+   list of member variables.
+
+Answer: 
+
+A hashTable class - Public functions:
+                        - GetData (retrieves the string vector given a filepath)
+                        - insert (adds to hash given a key and its values)
+                        - constructor (creates a hash given a certain size 
+                                                                     parameter)
+                        - hash (a function that given a filename, creates the 
+                                                               correlated index)
+                        - search (deals with looking for queries)
+
+fileData struct - Members:
+                        - string path;
+                        - vector<string> lines;
+                        - construcor to make struct given a path and vector;
+
+WordAdresses struct - Members:
+                        - string word;
+                        - vector<pair<int, line nums> 
+                        - constructor 
+
+gerp class - Public functions:
+                        - printLines (prints the lines associated to the word)
+                        - buildHash (builds hastable from given FSTree)
+                        - startQuery (starts the queryloop)
+
+2. Describe the index that you will build for querying. What specific data
+   structures will you use to build this index? *Important*: Bring an
+   accompanying drawing of your index structure when you come to your checkoff.
+
+Answer:  Hash index with mod of table size, ask ta about starting table size.
+         tbale size will increase according to the load factor which we will
+         have a variable for, and when it exceeeds .7 or .75 we will expand
+         the hashtable and rehash every element into the new hash. 
+
+         The hashtable class will have a template so that either struct can be
+         the element of the chain vector. 
+
+
+3. To use your index, you will use something for lookup (the key) and you will
+   get some associated data back (the value). What are the C++ *types* of your
+   index's key and value? Examples of valid types: int, string,
+   vector<string>, vector<list<string>>; you may also define custom types using
+   structs/classes, e.g., Animal and vector<Animal> are valid types if you
+   define a struct/class named Animal. If your key/value types involve custom
+   classes/structs, they should be included in your answer to question #1.
+                
+Answer: 
+   Key type: The key will be a string which is the filepath to the file. 
+   Value type: The value is a vector<string> containing the lines of the file. 
+          - within the get function of the hastable class it will 
+            differentiate between collisions an return the correct vector.
+
+   Second keytype: a string which is a processed "word"
+   Second Value type; vector<pair<filepaths, linenume>
+
+4. Explain what a collision is versus having multiple lines associated with 
+   a particular word. Write (and/or draw) out an example of when a 
+   collision occurs. Write (and/or draw) out an example of when multiple 
+   lines associated with a single word. 
+
+Answer:  Collision is when two or more different keys gets hashed to the same 
+         index. If our key is the word, it can associate to multiple lines 
+         without being a collision. 
+
+5. What do you expect the *space* complexity of your index will be? How many
+   times will a single line be stored according to your data structures?
+
+Answer:  We think the space complexity will not be bad at all since, a single 
+         line will only be stored one time. 
+
+6. What is the time complexity of *building* your index? If you refer to some
+   variable, be sure to specify what the variable refers to, e.g., in "O(n)",
+   state explicitly what "n" is.
+
+Answer:  If there are n file paths, for each file path, we must get each line.
+         So O(# of lines).  
+                
+7. What is the time complexity of *using* your index for lookup? As above,
+   be specific about variables you f3wwwuse.
+
+Answer:  O(1) to get from word key to file paths, then O(1) to get from filepath  
+         to data. 
+
+8. How will you handle case-sensitive search?
+   What is the time complexity (should be close to O(1))?
+
+Answer: compare against actual word in the line its found within
+
+9. How will you handle case-insensitive search?
+   What is the time complexity (should be close to O(1))?
+
+Answer: the key is always the processed word, so it will automatically handle it
+
+10. How are you handling duplicate words within a line? Consider these two example 
+   lines: 
+
+      (i) the cat and the dog 
+      (ii) the cat and THE dog 
+
+   If a user does a case sensitive query on line (i) it should report 'the' only 
+   once by showing the line only once in the output. How will you do this? 
+
+   If a user does a case insensitive query on line (ii) it should report 'the' 
+   only once by showing the line only once in the output. How will you do this? 
+
+Answer:  We only store lines a single time, so it will only be printed once.
+         the keys we store will be the processed version of the word, which
+         automatically makes this work. 
+
+11. How will you test your implementation and what specific evidence of testing
+    will you submit?
+
+Answer:  Unit_testing when applicable, otherwise we will make our own test test 
+         directories and compare the reuslts to the dmeo program. 
+
+12. What is your schedule for completing this assignment? Include specific dates
+    and the tasks that you would like to accomplish by each date. Do not forget
+    testing!
+
+Answer:  Work on phase 1 sunday and monday
+         Have full implementation by friday 
+         then start testing process. 

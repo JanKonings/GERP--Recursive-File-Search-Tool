@@ -1,0 +1,90 @@
+/**********************************************************
+* Project 3: Zap
+* CS 15
+* README
+* Jan Konings (jkonin01)
+* Jude Vamenta (jvamen01)
+*
+*********************************************************/
+
+/*******************************************************************************
+Purpose of Program: 
+
+    Implement the stripping of leading and trailing non alnum characters to 
+    later handle the queries for the gerp program. Implement the directory 
+    traversal that will be used to create and store our file and word data
+    structures. 
+
+*******************************************************************************/
+
+/*******************************************************************************
+Acknowledgements:
+
+
+*******************************************************************************/
+
+/*******************************************************************************
+Files:
+
+
+
+*******************************************************************************/
+
+/*******************************************************************************
+Compiling and Running:
+
+    Compile with: unit_test
+        
+ 
+    Run with: unit_test
+
+
+*******************************************************************************/
+
+/*******************************************************************************
+An outline of the data structures and algorithms used:
+
+
+/*******************************************************************************
+Testing: 
+
+Phase one testing - To test stripNonAlphaNum and traverseDirectory, we used
+                    diverse and thorough unit_tests to ensure full 
+                    functionality of our functions. We came up with as many edge
+                    cases as we could such as single charcter input, non alnum 
+                    charcters in the middle of a valid word etc to create a more
+                    robust program :)
+
+
+
+since the correct handling of opening input and output files is always an 
+important aspect of any good program, we started with testing the_gerp 
+with specifically unopenable, or unwriteable input and output files. This helped
+us catch two edge cases with unopenable inputs or outputs. We added checks
+for if files were being opened correctly, and we gracefully caught and handled
+any errors that arise from file related issues.
+
+
+We created a test directory, with mutliple different specialy created and 
+arranged files, that kept growing and adapting to edge cases or other unit_tests
+we wanted to test our program with. The directory contains cerytain specific 
+stripped or non stripped words that we thought might give our prgram trouble,
+it contained long lines, strange words etcc... This startegy performed very well
+and we debugged some very key parts of our program using the test directory.
+Since the input to the program is fairly simple, we relied mostly on diff 
+testing and test directories in order to test the functionality of our program. 
+
+
+
+
+*******************************************************************************/
+
+/*******************************************************************************
+Time: 
+
+    4 hours - designing, planning, writing, debugging, etc.
+
+*******************************************************************************/
+
+
+
