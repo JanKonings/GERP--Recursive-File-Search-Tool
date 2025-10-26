@@ -1,1 +1,2 @@
 # GERP--Recursive-File-Search-Tool
+Gerp is a command-line text search utility inspired by Unix grep. It recursively scans directories and performs both case-sensitive and case-insensitive word searches. The system indexes data using a custom hash table that maps normalized tokens to their original forms and file/line locations, enabling fast lookups across large text collections. Designed with efficient file I/O and memory-aware structures, Gerp handles massive datasets such as Project Gutenberg while providing clear, context-rich output for each match.
